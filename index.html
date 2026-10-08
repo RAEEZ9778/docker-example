@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Student Event Registration</title>
+    <title>Department Portal</title>
 
     <style>
         body {
             margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-            background: #f2f4f7;
+            background: #f4f6f8;
+        }
+
+        header {
+            background: #1f4e79;
+            color: white;
+            padding: 25px;
+            text-align: center;
         }
 
         .container {
@@ -20,12 +25,12 @@
             background: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        h1 {
+        h2 {
             text-align: center;
-            margin-bottom: 25px;
+            color: #1f4e79;
         }
 
         label {
@@ -34,9 +39,7 @@
             font-weight: bold;
         }
 
-        input,
-        textarea,
-        select {
+        input, select, textarea {
             width: 100%;
             padding: 10px;
             margin-top: 6px;
@@ -45,29 +48,25 @@
             border-radius: 5px;
         }
 
-        textarea {
-            resize: vertical;
-        }
-
         button {
             width: 100%;
             margin-top: 25px;
             padding: 12px;
+            background: #1f4e79;
+            color: white;
             border: none;
             border-radius: 5px;
-            background: #007bff;
-            color: white;
             font-size: 16px;
             cursor: pointer;
         }
 
         button:hover {
-            background: #0056b3;
+            background: #163a5c;
         }
 
         #message {
-            margin-top: 20px;
             text-align: center;
+            margin-top: 20px;
             font-weight: bold;
         }
     </style>
@@ -75,78 +74,57 @@
 
 <body>
 
+<header>
+    <h1>Department Portal</h1>
+    <p>Student Department Information Portal</p>
+</header>
+
 <div class="container">
 
-    <h1>Student Event Registration</h1>
+    <h2>Department Registration</h2>
 
-    <form id="registrationForm">
+    <form id="departmentForm">
 
-        <label for="eventName">Event Name</label>
+        <label>Student Name</label>
         <input
             type="text"
-            id="eventName"
-            name="eventName"
-            placeholder="Enter event name"
-            required
-        >
-
-        <label for="eventDescription">Event Description</label>
-        <textarea
-            id="eventDescription"
-            name="eventDescription"
-            rows="3"
-            placeholder="Enter event description"
-            required
-        ></textarea>
-
-        <label for="studentName">Student Name</label>
-        <input
-            type="text"
-            id="studentName"
-            name="studentName"
             placeholder="Enter student name"
             required
         >
 
-        <label for="registerNumber">Register Number</label>
+        <label>Register Number</label>
         <input
             type="text"
-            id="registerNumber"
-            name="registerNumber"
             placeholder="Enter register number"
             required
         >
 
-        <label for="department">Department</label>
-        <select id="department" name="department" required>
+        <label>Department</label>
+        <select required>
             <option value="">Select Department</option>
-            <option value="CSE">Computer Science and Engineering</option>
-            <option value="IT">Information Technology</option>
-            <option value="ECE">Electronics and Communication Engineering</option>
-            <option value="EEE">Electrical and Electronics Engineering</option>
-            <option value="MECH">Mechanical Engineering</option>
-            <option value="CIVIL">Civil Engineering</option>
+            <option>CSE</option>
+            <option>IT</option>
+            <option>ECE</option>
+            <option>EEE</option>
+            <option>Mechanical</option>
+            <option>Civil</option>
         </select>
 
-        <label for="email">Email</label>
+        <label>Email</label>
         <input
             type="email"
-            id="email"
-            name="email"
-            placeholder="Enter email address"
+            placeholder="Enter email"
             required
         >
 
-        <label for="eventDate">Event Date</label>
-        <input
-            type="date"
-            id="eventDate"
-            name="eventDate"
-            required
-        >
+        <label>Message</label>
+        <textarea
+            rows="4"
+            placeholder="Enter your message"
+        ></textarea>
 
         <button type="submit">
-            Register for Event
+            Submit
         </button>
 
     </form>
@@ -156,18 +134,15 @@
 </div>
 
 <script>
-    document
-        .getElementById("registrationForm")
-        .addEventListener("submit", function(event) {
+    document.getElementById("departmentForm").addEventListener("submit", function(event) {
+        event.preventDefault();
 
-            event.preventDefault();
+        document.getElementById("message").textContent =
+            "Department information submitted successfully!";
 
-            document.getElementById("message").textContent =
-                "Registration submitted successfully!";
-
-            document.getElementById("registrationForm").reset();
-        });
+        this.reset();
+    });
 </script>
 
 </body>
-</html>    
+</html>
