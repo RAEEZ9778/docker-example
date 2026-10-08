@@ -3,146 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Department Portal</title>
+    <title>Department Information Portal</title>
 
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
             font-family: Arial, sans-serif;
             background: #f4f6f8;
+            color: #111;
         }
 
         header {
-            background: #1f4e79;
+            background: #245782;
             color: white;
-            padding: 25px;
             text-align: center;
+            padding: 38px 20px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 14px;
+        }
+
+        header p {
+            font-size: 15px;
         }
 
         .container {
-            width: 500px;
-            margin: 40px auto;
+            width: 90%;
+            max-width: 1000px;
+            margin: 24px auto;
+        }
+
+        .card {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 32px 20px;
+            margin-bottom: 16px;
+            border-radius: 9px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
         }
 
-        h2 {
-            text-align: center;
-            color: #1f4e79;
+        .card h2 {
+            color: #245782;
+            font-size: 21px;
+            margin-bottom: 18px;
         }
 
-        label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
+        .card p {
+            font-size: 14px;
+            line-height: 1.6;
         }
 
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 6px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .card ul {
+            margin-left: 30px;
+            font-size: 14px;
+            line-height: 1.4;
         }
 
-        button {
-            width: 100%;
-            margin-top: 25px;
-            padding: 12px;
-            background: #1f4e79;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+        @media (max-width: 600px) {
+            .container {
+                width: 94%;
+            }
 
-        button:hover {
-            background: #163a5c;
-        }
-
-        #message {
-            text-align: center;
-            margin-top: 20px;
-            font-weight: bold;
+            header h1 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Department Portal</h1>
-    <p>Student Department Information Portal</p>
-</header>
+    <header>
+        <h1>Department Information Portal</h1>
+        <p>School of Computer Science and Engineering</p>
+    </header>
 
-<div class="container">
+    <div class="container">
 
-    <h2>Department Registration</h2>
+        <div class="card">
+            <h2>Department Name</h2>
+            <p>Computer Science and Engineering</p>
+        </div>
 
-    <form id="departmentForm">
+        <div class="card">
+            <h2>Faculty</h2>
+            <p>
+                Our department consists of experienced faculty members
+                specializing in software engineering, artificial intelligence,
+                cybersecurity, data science and computer systems.
+            </p>
+        </div>
 
-        <label>Student Name</label>
-        <input
-            type="text"
-            placeholder="Enter student name"
-            required
-        >
+        <div class="card">
+            <h2>Programs Offered</h2>
+            <ul>
+                <li>B.Tech Computer Science and Engineering</li>
+                <li>Integrated M.Tech Software Engineering</li>
+                <li>M.Tech Computer Science and Engineering</li>
+            </ul>
+        </div>
 
-        <label>Register Number</label>
-        <input
-            type="text"
-            placeholder="Enter register number"
-            required
-        >
+        <div class="card">
+            <h2>Laboratories</h2>
+            <ul>
+                <li>Programming Laboratory</li>
+                <li>Software Engineering Laboratory</li>
+                <li>Computer Networks Laboratory</li>
+            </ul>
+        </div>
 
-        <label>Department</label>
-        <select required>
-            <option value="">Select Department</option>
-            <option>CSE</option>
-            <option>IT</option>
-            <option>ECE</option>
-            <option>EEE</option>
-            <option>Mechanical</option>
-            <option>Civil</option>
-        </select>
-
-        <label>Email</label>
-        <input
-            type="email"
-            placeholder="Enter email"
-            required
-        >
-
-        <label>Message</label>
-        <textarea
-            rows="4"
-            placeholder="Enter your message"
-        ></textarea>
-
-        <button type="submit">
-            Submit
-        </button>
-
-    </form>
-
-    <div id="message"></div>
-
-</div>
-
-<script>
-    document.getElementById("departmentForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        document.getElementById("message").textContent =
-            "Department information submitted successfully!";
-
-        this.reset();
-    });
-</script>
+    </div>
 
 </body>
 </html>
