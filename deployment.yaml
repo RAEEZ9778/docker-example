@@ -1,46 +1,44 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: student-event-app
+  name: q3-department-portal
   labels:
-    app: student-event
+    app: q3-department-portal
 
 spec:
   replicas: 3
 
   selector:
     matchLabels:
-      app: student-event
+      app: q3-department-portal
 
   template:
     metadata:
       labels:
-        app: student-event
+        app: q3-department-portal
 
     spec:
       containers:
-        - name: student-event
-          image: raeezsafa9778/student-event:latest
-
+        - name: q3-department-portal
+          image: raeezsafa9778/q3-department-portal:latest
           ports:
             - containerPort: 80
-
           imagePullPolicy: Always
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: student-event-service
+  name: q3-department-portal-service
 
 spec:
   type: NodePort
 
   selector:
-    app: student-event
+    app: q3-department-portal
 
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30020
+      nodePort: 30021
