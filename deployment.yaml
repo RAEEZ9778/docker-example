@@ -1,38 +1,46 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: html-demo
+  name: student-event-app
+  labels:
+    app: student-event
+
 spec:
-  replicas: 2
+  replicas: 3
 
   selector:
     matchLabels:
-      app: html-demo
+      app: student-event
 
   template:
     metadata:
       labels:
-        app: html-demo
+        app: student-event
 
     spec:
       containers:
-        - name: html-demo
-          image: raeezsafa9778/html-demo:latest
+        - name: student-event
+          image: raeezsafa9778/student-event:latest
+
           ports:
             - containerPort: 80
+
+          imagePullPolicy: Always
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: html-demo-service
+  name: student-event-service
+
 spec:
   type: NodePort
 
   selector:
-    app: html-demo
+    app: student-event
 
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 80
-      nodePort: 30010
+      nodePort: 30020
